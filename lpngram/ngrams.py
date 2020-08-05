@@ -22,6 +22,7 @@ from .smoothing import smooth_dist
 _PAD_SYMBOL = "$$$"
 _ELM_SYMBOL = "###"
 
+
 def _seq_as_tuple(sequence):
     """
     Internal function for automatically converting a string sequence to a
@@ -764,6 +765,7 @@ def get_n_ngrams(sequence, order, pad_symbol=_PAD_SYMBOL):
     for ngram in zip(*[seq[i:] for i in range(order)]):
         yield ngram
 
+
 # TODO: rename to `collect` as above
 def get_all_ngrams_by_order(sequence, orders=None, pad_symbol=_PAD_SYMBOL):
     """
@@ -823,6 +825,7 @@ def get_all_ngrams_by_order(sequence, orders=None, pad_symbol=_PAD_SYMBOL):
     for order in orders:
         for ngram in get_n_ngrams(seq, order, pad_symbol):
             yield ngram
+
 
 # TODO: rename to `collect` as above
 def get_skipngrams(sequence, order, max_gaps, pad_symbol=_PAD_SYMBOL, single_gap=True):
@@ -986,6 +989,7 @@ def get_skipngrams(sequence, order, max_gaps, pad_symbol=_PAD_SYMBOL, single_gap
                         yield tuple(
                             seq[idx + skip] for skip, keep in enumerate(pattern) if keep
                         )
+
 
 # TODO: renamte to `collect` as above
 def get_posngrams(

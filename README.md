@@ -31,7 +31,74 @@ are not desired, the library can be used by just copying the files in the
 
 ## How to use
 
-Lorem ipsum
+The library operates on any kind of Python iterable, such as strings, lists, and tuples.
+Methods allow to collect normal ngrams, skip n-grams, and positional n-grams.
+Different left and right orders can be specified, as well as different padding
+symbols (if any).
+
+The example below collects ngrams with a left order of at most 1 and a right order of
+at most 2 from a short list with three country names.
+
+```python
+>>> import lpngram
+>>> words = ['Germany', 'Italy', 'Brazil']
+>>> model = lpngram.NgramModel(1, 2, sequences=words)
+```
+
+Even without smoothing, the model allows to query counters for specific contexts. Here
+we investigate which characters are found preceding an `a`, which are found
+between `G` and `r`, and the full list of characters with their counts:
+
+```python
+>>> model._ngrams['###', 'a']
+Counter({'m': 1, 't': 1, 'r': 1})
+>>> model._ngrams['G', '###', 'r']
+Counter({'e': 1})
+>>> model._ngrams['###',]
+Counter({'a': 3, 'r': 2, 'y': 2, 'l': 2, 'G': 1, 'e': 1, 'm': 1, 'n': 1,
+'I': 1, 't': 1, 'B': 1, 'z': 1, 'i': 1})
+```
+
+For most operations, smoothing is necessary or recommended. The library includes a
+range on smoothing methods, including one developed for linguistic investigation
+purposes and based on degree of certainty. Here we perform smoothing with Lidstone's,
+method, a gamma of 0.1, no normalization:
+
+```python
+>>> model.train(method='lidstone', gamma=0.1)
+>>> model._p['###', 'a']
+{'m': -1.363304842895192, 't': -1.363304842895192, 'r': -1.363304842895192}
+>>> model._p['G', '###', 'r']
+{'e': -0.737598943130779}
+>>> model._p['###',]
+{'G': -2.864794916106515, 'e': -2.864794916106515, 'r': -2.2181677511814626,
+'m': -2.864794916106515, 'a': -1.8287029844197393, 'n': -2.864794916106515,
+'y': -2.2181677511814626, 'I': -2.864794916106515, 't': -2.864794916106515,
+'l': -2.2181677511814626, 'B': -2.864794916106515, 'z': -2.864794916106515,
+'i': -2.864794916106515}
+```
+
+With a smoothed distribution, we can use other methods such as generation of random
+strings:
+
+```python
+>>> model.random_seqs(k=4)
+[('B', 'r', 'a', 'z', 'i', 'l'), ('I', 't', 'a', 'z', 'i', 'l'),
+('G', 'e', 'r', 'm', 'a', 'n', 'y'), ('I', 't', 'a', 'z', 'i', 'l', 'y')]
+```
+
+We can also compute the internal measures of entropy and perplexity:
+
+```python
+>>> model.model_entropy()
+62.59647855466861
+>>> model.entropy('Itazil')
+17.095797405180004
+>>> model.perplexity('Itazil')
+140070.86762308443
+```
+Detailed usage is demonstrated in the tests suits. Full documentation and examples will
+be provided in future versions.
 
 ## Community guidelines
 
