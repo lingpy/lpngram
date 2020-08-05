@@ -7,7 +7,7 @@
 Python library for ngram collection and frequency smoothing.
 
 `lpngram` is a pure-Python implementation of methods for ngram collection and frequency
-smoothing, originally part of the [`lingpy`](http://lingpy.org/) library. It has no
+smoothing, originally part of the [lingpy](http://lingpy.org/) library. It has no
 dependencies, but will use `numpy` and `scipy`, if available, to speed smoothing
 computations. It was designed to work on any kind of sequence, not just words, and
 has been successfully used to collect phoneme n-grams.
