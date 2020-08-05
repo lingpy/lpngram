@@ -12,7 +12,6 @@ from collections import defaultdict, Counter
 from functools import partial
 from itertools import chain, combinations, product
 import math
-import pickle
 import random
 
 # Import from namespace
@@ -169,12 +168,10 @@ class NgramModel:
             # The positional information (ngram[2]) is actually discarded
             # in this stage.
             for sequence in sequences:
-                [
+                for ngram in get_all_posngrams(
+                    sequence, self._pre, self._post, self._padsymbol
+                ):
                     self._ngrams[ngram[0]].update(ngram[1])
-                    for ngram in get_all_posngrams(
-                        sequence, self._pre, self._post, self._padsymbol
-                    )
-                ]
 
             # Collect sequence lengths.
             self._seqlens.update([len(sequence) for sequence in sequences])
@@ -561,8 +558,8 @@ class NgramModel:
                     return None
             else:
                 pop = list(sspace.keys())
-                w = list(sspace.values())
-                rnd_seq += (random.choices(pop, w)[0][-1],)
+                weight = list(sspace.values())
+                rnd_seq += (random.choices(pop, weight)[0][-1],)
 
                 # If we are now at the requested length for the random
                 # sequence, let's exit the loop and the return the random
@@ -651,7 +648,7 @@ class NgramModel:
         # Initialize the list for holding the random sequences and cache
         # some values used repeatedly.
         rnd_seqs = []
-        for i in range(k * attempts):
+        for _ in range(k * attempts):
             # Get a sequence length, if any -- if not sequence length is
             # specified, this will be randomly selected by the
             # `._gen_single_rnd_seq()` method. We already append here
@@ -1331,7 +1328,7 @@ def get_all_ngrams(sequence, sort=False):
     """
 
     # get the length of the word
-    l = len(sequence)
+    length = len(sequence)
 
     # determine the starting point
     i = 0
@@ -1340,9 +1337,9 @@ def get_all_ngrams(sequence, sort=False):
     out = []
 
     # start the while loop
-    while i != l and i < l:
+    while i != length and i < length:
         # copy the sequence
-        new_sequence = sequence[i:l]
+        new_sequence = sequence[i:length]
 
         # append the sequence to the output list
         out += [new_sequence]
@@ -1354,7 +1351,7 @@ def get_all_ngrams(sequence, sort=False):
 
         # increment i and decrement l
         i += 1
-        l -= 1
+        length -= 1
 
     sort = sort or list
 
