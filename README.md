@@ -78,6 +78,18 @@ method, a gamma of 0.1, no normalization:
 'i': -2.864794916106515}
 ```
 
+The smoothed distribution allows to perform the main purpose of the library, which
+is to score the likelihood of sequences:
+
+```python
+>>> model.score("Italy")
+-35.461238155043674
+>>> model.score("Itazily")
+-106.65033225683297
+>>> model.score("France")
+-240.5559013433157
+```
+
 With a smoothed distribution, we can use other methods such as generation of random
 strings:
 
