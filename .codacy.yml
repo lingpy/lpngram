@@ -1,0 +1,6 @@
+exclude_paths:
+    - "AUTHORS.md"
+    - "README.md"
+    - "CONTRIBUTING.md"
+    - "CODE_OF_CONDUCT.md"
+    - "tests/*.py"

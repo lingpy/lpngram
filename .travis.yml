@@ -1,0 +1,14 @@
+language: python
+
+python:
+  - "3.6"
+
+install:
+  - "python setup.py install"
+  - "pip install codecov"
+
+script:
+  - "coverage run tests/test_lpngram.py"
+
+after_success:
+  - "codecov"
