@@ -15,7 +15,7 @@ with open("requirements.txt") as fp:
 # This call to setup() does all the work
 setup(
     name="lpngram",
-    version="0.1",
+    version="0.1.1",
     description="Python libary for ngram collection and frequency smoothing",
     long_description=README_FILE,
     long_description_content_type="text/markdown",

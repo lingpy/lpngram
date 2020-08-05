@@ -132,7 +132,7 @@ No. [ERC Grant #715618](https://cordis.europa.eu/project/rcn/206320/factsheet/en
 If you use `lpngram`, please cite it as:
 
 > Tresoldi, Tiago; List, Johann-Mattis (2020). lpngram, a Python library for ngram
-collection and frequency smoothing. Version 0.1. Jena: Max Planck Institute for the Science of Human History.
+collection and frequency smoothing. Version 0.1.1. Jena: Max Planck Institute for the Science of Human History.
 Available at: https://github.com/lingpy/lpngram
 
 In BibTeX:
@@ -140,7 +140,7 @@ In BibTeX:
 ```
 @misc{Tresoldi2020lpngram,
   author = {Tresoldi, Tiago; List, Johann-Mattis},
-  title = {lpngram, a Python library for ngram collection and frequency smoothing. Version 0.1},
+  title = {lpngram, a Python library for ngram collection and frequency smoothing. Version 0.1.1},
   howpublished = {\url{https://github.com/lingpy/lpngram}},
   address = {Jena},
   publisher = {Max Planck Institute for the Science of Human History},
