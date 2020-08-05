@@ -16,7 +16,7 @@ import lpngram
 
 
 def main():
-    print("calling main")
+    print("<not implemented in this version>")
 
 
 if __name__ == "__main__":

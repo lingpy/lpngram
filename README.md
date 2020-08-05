@@ -84,19 +84,8 @@ is to score the likelihood of sequences:
 ```python
 >>> model.score("Italy")
 -35.461238155043674
->>> model.score("Itazily")
--106.65033225683297
->>> model.score("France")
--240.5559013433157
-```
-
-With a smoothed distribution, we can use other methods such as generation of random
-strings:
-
-```python
->>> model.random_seqs(k=4)
-[('B', 'r', 'a', 'z', 'i', 'l'), ('I', 't', 'a', 'z', 'i', 'l'),
-('G', 'e', 'r', 'm', 'a', 'n', 'y'), ('I', 't', 'a', 'z', 'i', 'l', 'y')]
+>>> [model.score(word) for word in ["Italy", "Itazily", "France"]]
+[-35.461238155043674, -106.65033225683297, -240.5559013433157]
 ```
 
 We can also compute the internal measures of entropy and perplexity:
@@ -108,7 +97,21 @@ We can also compute the internal measures of entropy and perplexity:
 17.095797405180004
 >>> model.perplexity('Itazil')
 140070.86762308443
+>>> [model.entropy(word) for word in ["Italy", "Itazily", "France"]]
+[10.231950486012801, 21.980557922299024, 57.84146765409605]
+>>> [model.perplexity(word) for word in ["Italy", "Itazily", "France"]]
+[1202.6077837373584, 4138159.7865280183, 2.5823598282235027e+17]
 ```
+
+With a smoothed distribution, we can use other methods such as generation of random
+strings:
+
+```python
+>>> model.random_seqs(k=4)
+[('B', 'r', 'a', 'z', 'i', 'l'), ('I', 't', 'a', 'z', 'i', 'l'),
+('G', 'e', 'r', 'm', 'a', 'n', 'y'), ('I', 't', 'a', 'z', 'i', 'l', 'y')]
+```
+
 Detailed usage is demonstrated in the tests suits. Full documentation and examples will
 be provided in future versions.
 
