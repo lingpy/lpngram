@@ -1,7 +1,7 @@
 # lpngram
 
 [![Build Status](https://travis-ci.org/lingpy/lpngram.svg?branch=master)](https://travis-ci.org/lingpy/lpngram)
-[![codecov](https://codecov.io/gh/tresoldi/ngesh/branch/master/graph/badge.svg)](https://codecov.io/gh/tresoldi/ngesh)
+[![codecov](https://codecov.io/gh/lingpy/lpngram/branch/master/graph/badge.svg)](https://codecov.io/gh/lingpy/lpngram)
 [![PyPI](https://img.shields.io/pypi/v/lpngram.svg)](https://pypi.org/project/lpngram)
 
 Python library for ngram collection and frequency smoothing.
