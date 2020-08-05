@@ -20,7 +20,7 @@ Version 0.1:
 In any standard Python environment, `lpngram` can be installed with:
 
 ```bash
-pip install ngesh
+pip install lpngram
 ```
 
 The `pip` installation will also fetch the dependencies `numpy` and `scipy`. If those
@@ -53,6 +53,7 @@ Available at: https://github.com/lingpy/lpngram
 
 In BibTeX:
 
+```
 @misc{Tresoldi2020lpngram,
   author = {Tresoldi, Tiago; List, Johann-Mattis},
   title = {lpngram, a Python library for ngram collection and frequency smoothing. Version 0.1},
@@ -61,3 +62,4 @@ In BibTeX:
   publisher = {Max Planck Institute for the Science of Human History},
   year = {2020},
 }
+```
