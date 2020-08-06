@@ -32,7 +32,7 @@ are not desired, the library can be used by just copying the files in the
 ## How to use
 
 The library operates on any kind of Python iterable, such as strings, lists, and tuples.
-Methods allow to collect normal ngrams, skip n-grams, and positional n-grams.
+There are methods to collect normal n-grams, skip n-grams, and positional n-grams.
 Different left and right orders can be specified, as well as different padding
 symbols (if any).
 
@@ -45,7 +45,7 @@ at most 2 from a short list with three country names.
 >>> model = lpngram.NgramModel(1, 2, sequences=words)
 ```
 
-Even without smoothing, the model allows to query counters for specific contexts. Here
+Even without smoothing, the model allows you to query counters for specific contexts. Here
 we investigate which characters are found preceding an `a`, which are found
 between `G` and `r`, and the full list of characters with their counts:
 
@@ -60,9 +60,10 @@ Counter({'a': 3, 'r': 2, 'y': 2, 'l': 2, 'G': 1, 'e': 1, 'm': 1, 'n': 1,
 ```
 
 For most operations, smoothing is necessary or recommended. The library includes a
-range on smoothing methods, including one developed for linguistic investigation
-purposes and based on degree of certainty. Here we perform smoothing with Lidstone's,
-method, a gamma of 0.1, no normalization:
+range of smoothing methods, including one based on degree of certainty developed for
+linguistic investigation purposes.
+
+Here we perform smoothing with Lidstone's method, a gamma of 0.1, and no normalization:
 
 ```python
 >>> model.train(method='lidstone', gamma=0.1)
@@ -78,7 +79,7 @@ method, a gamma of 0.1, no normalization:
 'i': -2.864794916106515}
 ```
 
-The smoothed distribution allows to perform the main purpose of the library, which
+The smoothed distribution allows us to perform the main purpose of the library, which
 is to score the likelihood of sequences:
 
 ```python
@@ -112,7 +113,7 @@ strings:
 ('G', 'e', 'r', 'm', 'a', 'n', 'y'), ('I', 't', 'a', 'z', 'i', 'l', 'y')]
 ```
 
-Detailed usage is demonstrated in the tests suits. Full documentation and examples will
+Detailed usage is demonstrated in the tests suite. Full documentation and examples will
 be provided in future versions.
 
 ## Community guidelines
