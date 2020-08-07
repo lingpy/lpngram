@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup
+from setuptools import setup, find_packages
 
 # The directory containing this file
 LOCAL_PATH = pathlib.Path(__file__).parent
@@ -29,7 +29,8 @@ setup(
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries",
     ],
-    packages=["lpngram"],
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     python_requires=">=3.6",
     keywords=["ngram", "markov", "smoothing"],
     include_package_data=True,
