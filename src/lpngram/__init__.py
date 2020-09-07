@@ -4,7 +4,7 @@
 lpngram __init__.py
 """
 
-# Version of the ngesh package
+# Version of the lpngram package
 __version__ = "0.1.1"
 __author__ = "Tiago Tresoldi; Johann-Mattis-List"
 __email__ = "tresoldi@shh.mpg.de"
