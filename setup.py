@@ -19,7 +19,7 @@ setup(
     description="Python libary for ngram collection and frequency smoothing",
     long_description=README_FILE,
     long_description_content_type="text/markdown",
-    url="https://github.com/tresoldi/lpngram",
+    url="https://github.com/lingpy/lpngram",
     author="Tiago Tresoldi; Johann-Mattis List",
     author_email="tresoldi@shh.mpg.de",
     license="MIT",
